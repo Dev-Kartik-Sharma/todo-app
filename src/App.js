@@ -1,9 +1,8 @@
-import './App.css';
+import ToDoApp from './components/Todo';
+
 function App() {
   return (
-    <div class="app-container">
-      ToDo App
-    </div>
+    <ToDoApp />
   );
 }
 
