@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './todo.css';
 
 function ToDoApp() {
     const [tasks, setTasks] = useState([]);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+
+    useEffect(()=> {
+        setTitle('');
+        setDescription('');
+    }, [tasks]);
 
     const handleTitleChange = (event) => {
         setTitle(event.target.value);
@@ -17,19 +22,21 @@ function ToDoApp() {
     const handleAddTask = () => {
         if (title !== '' && description !== '') {
             setTasks([...tasks, {title, description}]);
-            setTitle('');
-            setDescription('');
         }
     }
 
     const handleDeleteTask = (index) => {
-        const newTasks = [...tasks];
-        newTasks.splice(index, 1);
-        setTasks(newTasks);
+        if (window.confirm('Are you sure ? This task will be deleted !')) {
+            const newTasks = [...tasks];
+            newTasks.splice(index, 1);
+            setTasks(newTasks);
+        } 
     }
 
     const handleDeleteAllTasks = () => {
-        setTasks([]);
+        if (tasks.length>0 && window.confirm('Are you sure ? All tasks will be deleted !')) {
+            setTasks([]);
+        }
     }
 
     return (
@@ -58,14 +65,18 @@ function ToDoApp() {
                     {tasks.map((task, index) => (
                         <li key={index}>
                             <div class="task-card">
-                                <div class="task-details">
+                                <div class="task-heading">
                                     <h2> {task.title} </h2>
+                                </div>
+                                <div class="task-details">
                                     <p> {task.description} 
                                     </p>
+                                    <div class="single-button-container">
+                                        <button onClick={() => handleDeleteTask(index)}> 
+                                            Done
+                                        </button>
+                                    </div>
                                 </div>
-                                <button onClick={() => handleDeleteTask(index)}> 
-                                    Delete 
-                                </button>
                             </div>
                         </li>
                     ))}
