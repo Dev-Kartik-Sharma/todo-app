@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './todo.css';
 
 function ToDoApp() {
+
     const [tasks, setTasks] = useState([]);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -73,7 +74,7 @@ function ToDoApp() {
                                     </p>
                                     <div class="single-button-container">
                                         <button onClick={() => handleDeleteTask(index)}> 
-                                            Done
+                                            Delete       
                                         </button>
                                     </div>
                                 </div>

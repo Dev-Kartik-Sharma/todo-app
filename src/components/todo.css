@@ -1,7 +1,6 @@
 .app-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     padding: 1rem 0;
     width: 50%;
@@ -17,12 +16,13 @@
 .app-container:hover {
     box-shadow: 0 8px 8px 0 rgba(0,0,0,0.5);
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
     .app-container {
         width: 80%;
     }
 }
-.heading {
+.heading h1 {
+    font-weight: 500;
     text-align: center;
 }
 .input-container {
@@ -32,11 +32,15 @@
     align-items: center;
     gap: 0.5rem;
 }
-.input-container label {
+.input-container div {
+    display: flex;
+    flex-direction: column;
+}
+.input-container label, input {
     font-size: 1.2rem;
 }
 .input-container input {
-    font-size: 1.2rem;
+    font-weight: 300;
 }
 .buttons-container {
     display: flex;
@@ -74,14 +78,14 @@ button:hover {
     flex-direction: column;
     gap: 0.2rem;
     justify-content: space-between;
-    border: 1px solid tomato;
-    border-top: none;
+    /* border-bottom: 1px solid tomato; */
     border-radius: 5px;
 }
 .task-heading h2 {
     text-align: center;
-    background-color: #b16881;
+    background-color: #c1687b; 
     color: white;
+    font-weight: 500;
     border-radius: 5px;
 }
 .task-details {
@@ -92,7 +96,7 @@ button:hover {
 }
 .task-details p {
     padding: 0 0.5rem;
-    text-decoration: underline;
+    font-weight: 300;
 }
 .single-button-container {
     align-self: end;
