@@ -7,17 +7,19 @@ function ToDoApp() {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
 
-    useEffect(()=> {
+    useEffect(() => {
         setTitle('');
         setDescription('');
     }, [tasks]);
 
     const handleTitleChange = (event) => {
-        setTitle(event.target.value);
+        if (event.target.value.length <= 20)
+            setTitle(event.target.value);
     }
 
     const handleDescriptionChange = (event) => {
-        setDescription(event.target.value);
+        if (event.target.value.length <= 80)
+            setDescription(event.target.value);
     }
 
     const handleAddTask = () => {
