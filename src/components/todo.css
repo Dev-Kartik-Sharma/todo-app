@@ -78,7 +78,8 @@ button:hover {
     flex-direction: column;
     gap: 0.2rem;
     justify-content: space-between;
-    /* border-bottom: 1px solid tomato; */
+    border: 1px solid tomato;
+    border-top: none;
     border-radius: 5px;
 }
 .task-heading h2 {
